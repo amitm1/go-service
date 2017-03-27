@@ -3,7 +3,7 @@ package misc
 import (
 	//"github.com/ssorathia/go-ms-skel/app/logging"
 	"github.com/Sirupsen/logrus"
-	"github.com/amitm1/go-microsvc-skel/config"
+	"github.com/amitm1/go-service/config"
 	"gopkg.in/alexcesaro/statsd.v2"
 )
 

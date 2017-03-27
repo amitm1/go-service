@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/amitm1/go-microsvc-skel/misc"
+	"github.com/amitm1/go-service/misc"
 )
 
 func TestRequestId(t *testing.T) {

@@ -9,8 +9,8 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/amitm1/go-microsvc-skel/config"
-	"github.com/amitm1/go-microsvc-skel/misc"
+	"github.com/amitm1/go-service/config"
+	"github.com/amitm1/go-service/misc"
 	"github.com/gorilla/mux"
 	"gopkg.in/alexcesaro/statsd.v2"
 

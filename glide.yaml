@@ -1,9 +1,9 @@
-package: github.com/amitm1/go-microsvc-skel
+package: github.com/amitm1/go-service
 import:
 - package: github.com/BurntSushi/toml
 - package: github.com/Sirupsen/logrus
 - package: github.com/docker/go-healthcheck
-- package: github.com/amitm1/go-microsvc-skel
+- package: github.com/amitm1/go-service
   subpackages:
   - config
 - package: github.com/gorilla/mux
