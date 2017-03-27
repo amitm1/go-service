@@ -1,0 +1,276 @@
+swagger: "2.0"
+
+################################################################################
+#                              API Information                                 #
+################################################################################
+info:
+  version: "1.1"
+  title: Fox Authorization REST API
+# during dev, should point to your local machine
+host: svc.foxAuth.com
+# basePath prefixes all resource paths
+basePath: /v1
+#
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+
+################################################################################
+#                                  Security                                    #
+################################################################################
+securityDefinitions:
+  oauth:
+    # just an example, we can change it later
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://svc.foxauth.com/v1/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token
+    scopes:
+      basic: |
+       to authorize logged in user for fox Auth and evergent 
+       
+security:
+  - oauth:
+    - basic
+
+################################################################################
+#                                           Paths                              #
+################################################################################
+paths:
+  /v1/checkuserstatus:
+    get:
+      description: Returns user subscription status for the authenticated user
+      security:
+       - oauth:
+         - basic
+      parameters:
+        - name: emailId
+          in: query
+          description: Specifies user emailId which has been used for authentication
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: Specifies user password which has been used for authentication
+          required: true
+          type: string
+        - name: authToken
+          in: query
+          description: Specifies authentication token returned by Authentication API when user was authenticated.
+          required: true
+          type: string
+        - name: sessionId
+          in: query
+          description: Specifies secssion id returned by Authentication API when user was authenticated. This might be the session id returned from evergent.
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FoxAuthorization'
+
+  /v1/getEntitlements:
+    get:
+      description: Returns a collection of the most recent entitlements/subscription selected by user.
+      security:
+       - oauth:
+         - basic
+      parameters:
+        - name: emailId
+          in: query
+          description: Specifies user emailId which has been used for authentication
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: Specifies user password which has been used for authentication
+          required: true
+          type: string
+        - name: authToken
+          in: query
+          description: Specifies authentication token returned by Authentication API when user was authenticated.
+          required: true
+          type: string
+        - name: sessionId
+          in: query
+          description: Specifies session id returned by Authentication API when user was authenticated. This might be the session id returned from evergent.
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FoxAuthorization'
+
+ 
+
+################################################################################
+#                                 Definitions                                  #
+################################################################################
+definitions:
+  FoxAuthorization:
+    type: object
+    properties:
+      packages:
+        type: array
+        items:
+          $ref: '#/definitions/Packages'
+      products:
+        $ref: '#/definitions/Product'
+      created_at:
+        type: string
+      entities:
+        $ref: '#/definitions/Entities'
+      favorited:
+        type: boolean
+      filter_level:
+        type: string
+      entitlement_id:
+        type: integer
+      entitlement_id_str:
+        type: string
+      in_reply_to_screen_name:
+        type: string
+      lang:
+        type: string
+      possibly_sensitive:
+        type: boolean
+      quoted_status_id:
+        type: integer
+      quoted_status_id_str:
+        type: string
+      user_status:
+        $ref: '#/definitions/FoxAuthorization'
+      source:
+        type: string
+      text:
+        type: string
+      truncated:
+        type: string
+      user:
+        $ref: '#/definitions/Users'
+      withheld_copyright:
+        type: boolean
+      withheld_countries:
+        type: array
+        items:
+          type: string
+      withheld_scope:
+        type: string
+
+  Packages:
+    type: object
+    properties:
+      package_id:
+        type: integer
+      package_id_str:
+        type: string
+      package_name:
+        type: string
+      package_activation_region:
+        type: string
+      package_products:
+        type: array
+        items:
+          $ref: '#/definitions/Product'
+
+  Product:
+    type: object
+    properties:
+      product_id:
+        type: integer
+      product_id_str:
+        type: string
+      created_at:
+        type: string
+      product_name:
+        type: string
+      active_status:
+        type: boolean
+      description:
+        type: string
+      product_region:
+        type: string
+      geo_enabled:
+        type: boolean
+
+  Users:
+    type: object
+    properties:
+      contributors_enabled:
+        type: boolean
+      created_at:
+        type: string
+      default_profile:
+        type: boolean
+      default_profile_image:
+        type: boolean
+      description:
+        type: string
+      entities:
+        $ref: '#/definitions/Entities'
+      favorites_count:
+        type: integer
+      geo_enabled:
+        type: boolean
+      id:
+        type: integer
+      id_str:
+        type: string
+        
+  Entities:
+    type: object
+    properties:
+      emailId:
+        type: string
+        items:
+          $ref: '#/definitions/Email_Id'
+      media:
+        type: array
+        items:
+          $ref: '#/definitions/Media'
+
+  Email_Id:
+    type: object
+    properties:
+      email_id:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+
+  Media:
+    type: object
+    properties:
+      display_url:
+        type: string
+      expanded_url:
+        type: string
+      id:
+        type: integer
+      id_str:
+        type: string
+      indices:
+        type: array
+        items:
+          type: integer
+      media_url:
+        type: string
+      media_url_https:
+        type: string
+      type:
+        type: string
+      url:
+        type: string

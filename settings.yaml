@@ -1,0 +1,5 @@
+serviceName: example
+enviroments:
+  dev:
+    regions:
+      - us-west-2

@@ -1,8 +1,34 @@
-hash: 9748e554242d254edee129f0b76f7056dcf46390746b6d3cb1cfbf08d10870dc
-updated: 2017-03-22T18:03:57.234626178-07:00
+hash: ca9cbdc356a1e8e2e36c7356537025c666bb1ba61c93487d68fb9c6898a34a24
+updated: 2017-03-27T15:36:11.055446644-07:00
 imports:
+- name: github.com/asaskevich/govalidator
+  version: 872bb01704d183fe276bce6fa429408a87661998
+- name: github.com/BurntSushi/toml
+  version: d94612f9fc140360834f9742158c70b5c5b5535b
+- name: github.com/docker/distribution
+  version: 0700fa570d7bcc1b3e46ee127c4489fd25f4daa3
+  subpackages:
+  - context
+  - registry/api/errcode
+  - uuid
+- name: github.com/docker/go-healthcheck
+  version: d8a60e9c8b84e16693ebc357328c6df85eb616c2
 - name: github.com/fsnotify/fsnotify
   version: ff7bc41d4007f67e5456703c34342df4e0113f64
+- name: github.com/go-openapi/errors
+  version: fc3f73a224499b047eda7191e5d22e1e9631e86f
+- name: github.com/go-openapi/runtime
+  version: e66a4c4406028a04ddafd6002c378ffd3db7e52b
+  subpackages:
+  - client
+- name: github.com/go-openapi/strfmt
+  version: 93a31ef21ac23f317792fff78f9539219dd74619
+- name: github.com/go-openapi/swag
+  version: d5f8ebc3b1c55a4cf6489eeae7354f338cfe299e
+- name: github.com/gorilla/context
+  version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
+- name: github.com/gorilla/mux
+  version: 599cba5e7b6137d46ddf58fb1765f5d928e69604
 - name: github.com/hashicorp/hcl
   version: 630949a3c5fa3c613328e1b8256052cbc2327c9b
   subpackages:
@@ -18,12 +44,18 @@ imports:
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/magiconair/properties
   version: 51463bfca2576e06c62a8504b5c0f06d61312647
+- name: github.com/mailru/easyjson
+  version: db58e6f9072c545a3a24b8d44c51d81fff6dcb51
+  subpackages:
+  - buffer
+  - jlexer
+  - jwriter
 - name: github.com/mitchellh/mapstructure
   version: 53818660ed4955e899c0bcafa97299a388bd7c8e
 - name: github.com/pelletier/go-buffruneio
   version: c37440a7cf42ac63b919c752ca73a85067e05992
 - name: github.com/pelletier/go-toml
-  version: 25e50242f65c230a826c3ab0d6480c58a973dcae
+  version: f6e7596e8daafd44dc9e5c208dc73035020c8481
 - name: github.com/Sirupsen/logrus
   version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/spf13/afero
@@ -37,18 +69,30 @@ imports:
 - name: github.com/spf13/jwalterweatherman
   version: fa7ca7e836cf3a8bb4ebf799f472c12d7e903d66
 - name: github.com/spf13/pflag
-  version: 9ff6c6923cfffbcd502984b8e0c80539a94968b7
+  version: d16db1e50e33dff1b6cdf37596cef36742128670
 - name: github.com/spf13/viper
   version: 84f94806c67f59dd7ae87bc5351f7a9c94a4558d
+- name: golang.org/x/net
+  version: 6c23252515492caf9b228a9d5cabcdbde29f7f82
+  subpackages:
+  - context
+  - context/ctxhttp
 - name: golang.org/x/sys
-  version: 8fd966b47dbdd4faa03de0d06e3d733baeb9a1a9
+  version: afadfcc7779c1f4db0f6f6438afcb108d9c9c7cd
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: b00b5aff2fd772bedad89f1cf227f624c7660c2f
+  version: fc7fa097411d30e6708badff276c4c164425590c
   subpackages:
   - transform
   - unicode/norm
+- name: gopkg.in/alexcesaro/statsd.v2
+  version: 7fea3f0d2fab1ad973e641e51dba45443a311a90
+- name: gopkg.in/mgo.v2
+  version: 3f83fa5005286a7fe593b055f0d7771a7dce4655
+  subpackages:
+  - bson
+  - internal/json
 - name: gopkg.in/yaml.v2
   version: a3f3340b5840cee44f372bddb5880fcbc419b46a
 testImports:
