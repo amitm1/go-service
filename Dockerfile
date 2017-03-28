@@ -1,0 +1,10 @@
+FROM golang:latest
+
+ENV PROJECT /go/src/github.com/amitm1/go-service
+RUN curl https://glide.sh/get | sh
+
+RUN mkdir -p $PROJECT
+WORKDIR $PROJECT
+
+COPY . $PROJECT
+RUN go build
