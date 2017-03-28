@@ -1,4 +1,4 @@
-go-service:
+my-go-service:
   build:
-    image: amitm1/go-service
-    dockerfile: Dockerfile
+    image: gotoamit/my-go-service:latest1
+    dockerfile: Dockerfile 
