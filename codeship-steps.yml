@@ -1,1 +1,2 @@
-command: go build
+- service: my-go-service
+  command: go build
