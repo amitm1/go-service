@@ -1,3 +1,2 @@
 - service: my-go-service
-  command: glide create
-  command: go build
+    command: go build ./...

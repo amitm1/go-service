@@ -4,7 +4,7 @@ FROM devtransition/golang-glide
 # INSTALL any further tools you need here so they are cached in the docker build
 
 # Set the WORKDIR to the project path in your GOPATH, e.g. /go/src/github.com/go-martini/martini/
-WORKDIR /Users/amitm/Documents/LocalSetUp/Visual_Studio_Code/go_projects/src/github.com/amitm1/go-service/
+WORKDIR /go/src/github.com/amitm1/go-service/
 
 # Copy the content of your repository into the container
 COPY . ./
@@ -12,4 +12,4 @@ COPY . ./
 # Install dependencies through go get, unless you vendored them in your repository before
 # Vendoring can be done through the godeps tool or Go vendoring available with
 # Go versions after 1.5.1
-#RUN glide update
+RUN glide init
