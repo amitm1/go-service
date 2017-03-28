@@ -1,2 +1,2 @@
 - service: my-go-service
-    command: go build ./...
+  command: bash -c "go build ./..."
