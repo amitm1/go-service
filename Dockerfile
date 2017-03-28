@@ -12,4 +12,4 @@ COPY . ./
 # Install dependencies through go get, unless you vendored them in your repository before
 # Vendoring can be done through the godeps tool or Go vendoring available with
 # Go versions after 1.5.1
-RUN glide init
+RUN glide create
