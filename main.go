@@ -7,12 +7,17 @@ import (
 	"net/http"
 	"os"
 	"time"
-
+    "fmt"
 	log "github.com/Sirupsen/logrus"
 	"github.com/amitm1/go-service/config"
 	"github.com/amitm1/go-service/misc"
 	"github.com/gorilla/mux"
 	"gopkg.in/alexcesaro/statsd.v2"
+	"github.com/aws/aws-sdk-go/aws"
+   // "github.com/aws/aws-sdk-go/aws/credentials"
+    "github.com/aws/aws-sdk-go/service/dynamodb"
+	"github.com/aws/aws-sdk-go/aws/session"
+	//"github.com/aws/aws-sdk-go/service/ec2"
 
 )
 
@@ -26,6 +31,75 @@ const (
 )
 
 func main() {
+
+	
+
+svc := dynamodb.New(session.New(&aws.Config{Region: aws.String("us-west-2")}))
+result, err := svc.ListTables(&dynamodb.ListTablesInput{})
+if err != nil {
+    fmt.Println(err)
+    return
+}
+
+fmt.Println("Tables:")
+for _, table := range result.TableNames {
+    fmt.Println(*table)
+}
+/*
+sess, err := session.NewSession()
+	if err != nil {
+		panic(err)
+	}
+
+	// Create an EC2 service object in the "us-west-2" region
+	// Note that you can also configure your region globally by
+	// exporting the AWS_REGION environment variable
+	svc := ec2.New(sess, &aws.Config{Region: aws.String("us-west-2")})
+
+	// Call the DescribeInstances Operation
+	resp, err := svc.DescribeInstances(nil)
+	if err != nil {
+		panic(err)
+	}
+
+	// resp has all of the response data, pull out instance IDs:
+	fmt.Println("> Number of reservation sets: ", len(resp.Reservations))
+	for idx, res := range resp.Reservations {
+		fmt.Println("  > Number of instances: ", len(res.Instances))
+		for _, inst := range resp.Reservations[idx].Instances {
+			fmt.Println("    - Instance ID: ", *inst.InstanceId)
+		}
+	}
+*/
+/*
+fmt.Printf("starting")
+
+	var endpoint = "http://127.0.0.1:8080"
+    creds := credentials.NewStaticCredentials("AKIAIBOAUV3L63RGZ2MA", "ZOHlK9lKGTxYELLAYO+Dgq7cMLnlrZbr2cixvwnB", "")
+    awsConfig := &aws.Config{
+        Credentials: creds,
+        Endpoint: &endpoint,
+    }
+
+    dynamodbconn := dynamodb.New('', awsConfig)
+
+    req := &dynamodb.DescribeTableInput{
+        TableName: aws.String("my_table"),
+    }
+
+    result, err := dynamodbconn.DescribeTable(req)
+
+    if err != nil {
+        fmt.Printf("%s", err)
+    }
+
+    table := result.Table
+
+       // some code
+
+    fmt.Printf("done")
+*/
+
 
 	conf = config.GetConfig()
 	if conf == nil {

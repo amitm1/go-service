@@ -10,6 +10,11 @@ import:
 - package: github.com/spf13/cobra
 - package: github.com/spf13/viper
 - package: gopkg.in/alexcesaro/statsd.v2
+- package: github.com/aws/aws-sdk-go
+- package: github.com/aws/aws-sdk-go/aws
+- package: github.com/aws/aws-sdk-go/service/dynamodb
+- package: github.com/aws/aws-sdk-go/aws/session
+- package: github.com/aws/aws-sdk-go/service/ec2
 testImport:
 - package: github.com/stretchr/testify
   subpackages:

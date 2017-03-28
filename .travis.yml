@@ -7,6 +7,7 @@ install:
    - go get github.com/Masterminds/glide
    - glide install
    - go get -u github.com/go-swagger/go-swagger/cmd/swagger
+   - go get -u github.com/aws/aws-sdk-go
 
 script:
     - go build
