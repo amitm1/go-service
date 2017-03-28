@@ -4,7 +4,7 @@ FROM devtransition/golang-glide
 # INSTALL any further tools you need here so they are cached in the docker build
 
 # Set the WORKDIR to the project path in your GOPATH, e.g. /go/src/github.com/go-martini/martini/
-WORKDIR /Users/amitm/Documents/LocalSetUp/Visual_Studio_Code/go_projects/src/github.com/amitm1
+WORKDIR /Users/amitm/Documents/LocalSetUp/Visual_Studio_Code/go_projects/src/github.com/amitm1/go-service/
 
 # Copy the content of your repository into the container
 COPY . ./
