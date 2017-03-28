@@ -1,2 +1,4 @@
-test:
-  build: ./
+go-service:
+  build:
+    image: amitm1/go-service
+    dockerfile: Dockerfile

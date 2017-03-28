@@ -1,10 +1,15 @@
+# Starting from the latest Golang container
 FROM golang:latest
 
-ENV PROJECT /go/src/github.com/amitm1/go-service
-RUN curl https://glide.sh/get | sh
+# INSTALL any further tools you need here so they are cached in the docker build
 
-RUN mkdir -p $PROJECT
-WORKDIR $PROJECT
+# Set the WORKDIR to the project path in your GOPATH, e.g. /go/src/github.com/go-martini/martini/
+WORKDIR /Users/amitm/Documents/LocalSetUp/Visual_Studio_Code/go_projects/src/github.com/amitm1
 
-COPY . $PROJECT
-RUN go build
+# Copy the content of your repository into the container
+COPY . ./
+
+# Install dependencies through go get, unless you vendored them in your repository before
+# Vendoring can be done through the godeps tool or Go vendoring available with
+# Go versions after 1.5.1
+RUN go get

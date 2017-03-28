@@ -1,4 +1,2 @@
-- service: test
-  type: serial
-  steps: 
-  - command: go build ./...
+- service: go-service
+  command: bash -c "go build ./..."
