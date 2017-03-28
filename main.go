@@ -75,7 +75,7 @@ sess, err := session.NewSession()
 fmt.Printf("starting")
 
 	var endpoint = "http://127.0.0.1:8080"
-    creds := credentials.NewStaticCredentials("AKIAIBOAUV3L63RGZ2MA", "ZOHlK9lKGTxYELLAYO+Dgq7cMLnlrZbr2cixvwnB", "")
+    //creds := credentials.NewStaticCredentials("asdasd", "adasdasd", "")
     awsConfig := &aws.Config{
         Credentials: creds,
         Endpoint: &endpoint,
