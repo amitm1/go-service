@@ -31,6 +31,8 @@ const (
 
 func main() {
 
+	fmt.Println("I am done here")
+
 	svc := dynamodb.New(session.New(&aws.Config{Region: aws.String("us-west-2")}))
 	result, err := svc.ListTables(&dynamodb.ListTablesInput{})
 	if err != nil {
@@ -97,7 +99,7 @@ func main() {
 	       fmt.Printf("done")
 	*/
 
-	conf = config.GetConfig()
+	/*conf = config.GetConfig()
 	if conf == nil {
 
 	}
@@ -112,9 +114,10 @@ func main() {
 	router := NewRouter()
 	log.Info("Starting up...")
 	log.Fatal(http.ListenAndServe(":8080", router))
+	*/
 
 }
-
+/*
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 	s := router.PathPrefix("/service").Subrouter()
@@ -219,3 +222,4 @@ func GetCache(w http.ResponseWriter, r *http.Request) {
 	w.Write(p)
 
 }
+*/
