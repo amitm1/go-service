@@ -1,25 +1,26 @@
 package main
 
 import (
-	log "github.com/Sirupsen/logrus"
-	"github.com/amitm1/go-service/config"
-	"github.com/amitm1/go-service/misc"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/gorilla/mux"
-	"gopkg.in/alexcesaro/statsd.v2"
-	"net/http"
-	"os"
-	"time"
-	// "github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
+	//log"github.com/Sirupsen/logrus"
+	//"github.com/amitm1/go-service/config"
+	//"github.com/amitm1/go-service/misc"
+	//"github.com/aws/aws-sdk-go/aws"
+	//"github.com/gorilla/mux"
+	//"gopkg.in/alexcesaro/statsd.v2"
+	//"net/http"
+	//"os"
+	//"time"
+	//"github.com/aws/aws-sdk-go/aws/credentials"
+	//"github.com/aws/aws-sdk-go/aws/session"
+	//"github.com/aws/aws-sdk-go/service/dynamodb"
 	//"github.com/aws/aws-sdk-go/service/ec2"
-	"context"
-	"crypto/rand"
-	"encoding/json"
+	//"context"
+	//"crypto/rand"
+	//"encoding/json"
 	"fmt"
 )
 
+/*
 var stats *statsd.Client
 var conf *config.Config
 var accesslog = new(log.TextFormatter)
@@ -28,12 +29,12 @@ const (
 	RFC3339Milli = "2006-01-02T15:04:05.000Z07:00"
 	SERVICE      = "svc"
 )
-
+*/
 func main() {
 
 	fmt.Println("I am done here")
 
-	svc := dynamodb.New(session.New(&aws.Config{Region: aws.String("us-west-2")}))
+	/*svc := dynamodb.New(session.New(&aws.Config{Region: aws.String("us-west-2")}))
 	result, err := svc.ListTables(&dynamodb.ListTablesInput{})
 	if err != nil {
 		fmt.Println(err)
@@ -44,6 +45,7 @@ func main() {
 	for _, table := range result.TableNames {
 		fmt.Println(*table)
 	}
+	*/
 	/*
 	   sess, err := session.NewSession()
 	   	if err != nil {
