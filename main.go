@@ -1,10 +1,6 @@
 package main
 
 import (
-	"context"
-	"crypto/rand"
-	"encoding/json"
-	"fmt"
 	log "github.com/Sirupsen/logrus"
 	"github.com/amitm1/go-service/config"
 	"github.com/amitm1/go-service/misc"
@@ -18,6 +14,10 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	//"github.com/aws/aws-sdk-go/service/ec2"
+	"context"
+	"crypto/rand"
+	"encoding/json"
+	"fmt"
 )
 
 var stats *statsd.Client
