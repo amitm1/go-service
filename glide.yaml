@@ -15,6 +15,7 @@ import:
 - package: github.com/aws/aws-sdk-go/service/dynamodb
 - package: github.com/aws/aws-sdk-go/aws/session
 - package: github.com/aws/aws-sdk-go/service/ec2
+- package: github.com/golang/net
 testImport:
 - package: github.com/stretchr/testify
   subpackages:
