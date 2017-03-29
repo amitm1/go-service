@@ -43,3 +43,11 @@ build: fmt lint
 run: lint
 	@echo "===> Running Server"
 	go run $(MAINFILES)
+
+build-go-service: fmt lint
+	@echo "===> Building go service"
+	go build
+
+run-go-service: lint
+	@echo "===> Building go service"
+	./go-service

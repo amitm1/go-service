@@ -4,21 +4,20 @@ import (
 	"context"
 	"crypto/rand"
 	"encoding/json"
-	"net/http"
-	"os"
-	"time"
-    "fmt"
+	"fmt"
 	log "github.com/Sirupsen/logrus"
 	"github.com/amitm1/go-service/config"
 	"github.com/amitm1/go-service/misc"
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/gorilla/mux"
 	"gopkg.in/alexcesaro/statsd.v2"
-	"github.com/aws/aws-sdk-go/aws"
-   // "github.com/aws/aws-sdk-go/aws/credentials"
-    "github.com/aws/aws-sdk-go/service/dynamodb"
+	"net/http"
+	"os"
+	"time"
+	// "github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/dynamodb"
 	//"github.com/aws/aws-sdk-go/service/ec2"
-
 )
 
 var stats *statsd.Client
@@ -32,74 +31,71 @@ const (
 
 func main() {
 
-	
-
-svc := dynamodb.New(session.New(&aws.Config{Region: aws.String("us-west-2")}))
-result, err := svc.ListTables(&dynamodb.ListTablesInput{})
-if err != nil {
-    fmt.Println(err)
-    return
-}
-
-fmt.Println("Tables:")
-for _, table := range result.TableNames {
-    fmt.Println(*table)
-}
-/*
-sess, err := session.NewSession()
+	svc := dynamodb.New(session.New(&aws.Config{Region: aws.String("us-west-2")}))
+	result, err := svc.ListTables(&dynamodb.ListTablesInput{})
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return
 	}
 
-	// Create an EC2 service object in the "us-west-2" region
-	// Note that you can also configure your region globally by
-	// exporting the AWS_REGION environment variable
-	svc := ec2.New(sess, &aws.Config{Region: aws.String("us-west-2")})
-
-	// Call the DescribeInstances Operation
-	resp, err := svc.DescribeInstances(nil)
-	if err != nil {
-		panic(err)
+	fmt.Println("Tables:")
+	for _, table := range result.TableNames {
+		fmt.Println(*table)
 	}
+	/*
+	   sess, err := session.NewSession()
+	   	if err != nil {
+	   		panic(err)
+	   	}
 
-	// resp has all of the response data, pull out instance IDs:
-	fmt.Println("> Number of reservation sets: ", len(resp.Reservations))
-	for idx, res := range resp.Reservations {
-		fmt.Println("  > Number of instances: ", len(res.Instances))
-		for _, inst := range resp.Reservations[idx].Instances {
-			fmt.Println("    - Instance ID: ", *inst.InstanceId)
-		}
-	}
-*/
-/*
-fmt.Printf("starting")
+	   	// Create an EC2 service object in the "us-west-2" region
+	   	// Note that you can also configure your region globally by
+	   	// exporting the AWS_REGION environment variable
+	   	svc := ec2.New(sess, &aws.Config{Region: aws.String("us-west-2")})
 
-	var endpoint = "http://127.0.0.1:8080"
-    //creds := credentials.NewStaticCredentials("asdasd", "adasdasd", "")
-    awsConfig := &aws.Config{
-        Credentials: creds,
-        Endpoint: &endpoint,
-    }
+	   	// Call the DescribeInstances Operation
+	   	resp, err := svc.DescribeInstances(nil)
+	   	if err != nil {
+	   		panic(err)
+	   	}
 
-    dynamodbconn := dynamodb.New('', awsConfig)
+	   	// resp has all of the response data, pull out instance IDs:
+	   	fmt.Println("> Number of reservation sets: ", len(resp.Reservations))
+	   	for idx, res := range resp.Reservations {
+	   		fmt.Println("  > Number of instances: ", len(res.Instances))
+	   		for _, inst := range resp.Reservations[idx].Instances {
+	   			fmt.Println("    - Instance ID: ", *inst.InstanceId)
+	   		}
+	   	}
+	*/
+	/*
+	   fmt.Printf("starting")
 
-    req := &dynamodb.DescribeTableInput{
-        TableName: aws.String("my_table"),
-    }
+	   	var endpoint = "http://127.0.0.1:8080"
+	       //creds := credentials.NewStaticCredentials("asdasd", "adasdasd", "")
+	       awsConfig := &aws.Config{
+	           Credentials: creds,
+	           Endpoint: &endpoint,
+	       }
 
-    result, err := dynamodbconn.DescribeTable(req)
+	       dynamodbconn := dynamodb.New('', awsConfig)
 
-    if err != nil {
-        fmt.Printf("%s", err)
-    }
+	       req := &dynamodb.DescribeTableInput{
+	           TableName: aws.String("my_table"),
+	       }
 
-    table := result.Table
+	       result, err := dynamodbconn.DescribeTable(req)
 
-       // some code
+	       if err != nil {
+	           fmt.Printf("%s", err)
+	       }
 
-    fmt.Printf("done")
-*/
+	       table := result.Table
 
+	          // some code
+
+	       fmt.Printf("done")
+	*/
 
 	conf = config.GetConfig()
 	if conf == nil {

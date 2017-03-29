@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/amitm1/go-service/misc"
 	"github.com/amitm1/go-service/healthcheck"
+	"github.com/amitm1/go-service/misc"
 )
 
 type Route struct {

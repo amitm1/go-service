@@ -1,2 +1,3 @@
 - service: my-go-service
-  command: make test
+  command: make build-go-service
+  command: make run-go-service

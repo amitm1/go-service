@@ -1,0 +1,22 @@
+mode: count
+github.com/amitm1/go-service/main.go:33.13,39.15 3 0
+github.com/amitm1/go-service/main.go:44.1,45.41 2 0
+github.com/amitm1/go-service/main.go:104.2,105.17 2 0
+github.com/amitm1/go-service/main.go:109.2,118.49 8 0
+github.com/amitm1/go-service/main.go:39.15,42.2 2 0
+github.com/amitm1/go-service/main.go:45.41,47.2 1 0
+github.com/amitm1/go-service/main.go:105.17,107.3 0 0
+github.com/amitm1/go-service/main.go:122.30,133.2 5 0
+github.com/amitm1/go-service/main.go:135.53,137.31 1 0
+github.com/amitm1/go-service/main.go:137.31,147.3 4 0
+github.com/amitm1/go-service/main.go:151.71,152.71 1 1
+github.com/amitm1/go-service/main.go:152.71,182.3 14 1
+github.com/amitm1/go-service/main.go:185.40,188.15 2 3
+github.com/amitm1/go-service/main.go:188.15,190.3 1 1
+github.com/amitm1/go-service/main.go:190.3,192.3 1 2
+github.com/amitm1/go-service/main.go:195.54,201.26 4 2
+github.com/amitm1/go-service/main.go:205.2,205.37 1 2
+github.com/amitm1/go-service/main.go:201.26,203.3 1 24
+github.com/amitm1/go-service/main.go:208.55,215.16 5 0
+github.com/amitm1/go-service/main.go:219.2,223.12 3 0
+github.com/amitm1/go-service/main.go:215.16,217.3 1 0
