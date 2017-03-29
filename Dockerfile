@@ -6,6 +6,7 @@ FROM golang:latest
 # Set the WORKDIR to the project path in your GOPATH, e.g. /go/src/github.com/go-martini/martini/
 RUN mkdir -p /go/src/github.com/amitm1/go-service
 WORKDIR /go/src/github.com/amitm1/go-service
+RUN curl https://glide.sh/get | sh
 
 # Copy the content of your repository into the container
 COPY . ./
